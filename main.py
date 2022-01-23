@@ -16,10 +16,8 @@ class Worker(QtCore.QThread):
         self.delay = delay
         self.image = image
     def run(self):
-        try:
-            send(self, self.token, self.channel_id, self.message, self.delay, self.image)
-        except:
-            pass
+        send(self, self.token, self.channel_id, self.message, self.delay, self.image)
+
 
 
 class formwindow(QtWidgets.QMainWindow):
@@ -28,6 +26,7 @@ class formwindow(QtWidgets.QMainWindow):
         self.mainui = Ui_MainWindow()
         self.mainui.setupUi(self)
         self.mainui.start_Button.installEventFilter(self)
+        self.mainui.start_Button.clicked.connect(self.start_sending)
 
     def eventFilter(self, source, event):
         if event.type() == QtCore.QEvent.MouseButtonPress and source is self.mainui.start_Button:
@@ -54,7 +53,59 @@ class formwindow(QtWidgets.QMainWindow):
             return False
         return super(formwindow, self).eventFilter(source, event)
     
-
+    def start_sending(self):
+        def logs_update(value: str):
+            self.mainui.logs_text.append(value)
+        token = self.mainui.token.text()
+        channel_id = self.mainui.channel_id.text()
+        message =self.mainui.message.toPlainText()
+        delay = self.mainui.delay.text()
+        image = self.mainui.image.text()
+        if token == '':
+            self.mainui.token.setStyleSheet("""background: #C4C4C4;
+                                    border: 2px solid #BC2E3F;
+                                    border-radius: 10px;
+                                    font-family: Sitara;
+                                    font-style: normal;
+                                    font-weight: normal;
+                                    font-size: 18px;
+                                    line-height: 29px;
+                                    color: #000000;""")
+        elif channel_id == '':
+             self.mainui.channel_id.setStyleSheet("""background: #C4C4C4;
+                                    border: 2px solid #BC2E3F;
+                                    border-radius: 10px;
+                                    font-family: Sitara;
+                                    font-style: normal;
+                                    font-weight: normal;
+                                    font-size: 18px;
+                                    line-height: 29px;
+                                    color: #000000;""")
+        elif message == '':
+            self.mainui.message.setStyleSheet("""background: #C4C4C4;
+                                    border: 2px solid #BC2E3F;
+                                    border-radius: 10px;
+                                    font-family: Sitara;
+                                    font-style: normal;
+                                    font-weight: normal;
+                                    font-size: 18px;
+                                    line-height: 29px;
+                                    color: #000000;""")
+        elif delay == '':
+            self.mainui.delay.setStyleSheet("""background: #C4C4C4;
+                                    border: 2px solid #BC2E3F;
+                                    border-radius: 10px;
+                                    font-family: Sitara;
+                                    font-style: normal;
+                                    font-weight: normal;
+                                    font-size: 18px;
+                                    line-height: 29px;
+                                    color: #000000;""")
+        else:
+            self.worker = Worker(token, channel_id, message, delay, image)
+            self.worker.start()
+            self.worker.logsbeep.connect(logs_update)
+            self.mainui.logs_text.append('Program started! Don\'t close!')
 def main():
     app = QtWidgets.QApplication(sys.argv)
     mainwindow = formwindow()

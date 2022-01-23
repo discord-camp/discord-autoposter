@@ -74,9 +74,8 @@ class Ui_MainWindow(object):
                                         color: #000000;
                                         padding: 10px""")
         self.logs_text.setObjectName("logs_text")
-        self.logs_text.setText("Logs")
         self.logs_text.setAlignment(QtCore.Qt.AlignHCenter)
-
+        self.logs_text.setReadOnly(True)
         self.token_text = QtWidgets.QLabel(self.centralwidget)
         self.token_text.setGeometry(QtCore.QRect(675, 13, 125, 35))
         self.token_text.setStyleSheet("""font-family: Sitara;
@@ -196,7 +195,7 @@ class Ui_MainWindow(object):
                                     line-height: 29px;
                                     color: #000000;""")
         self.image.setObjectName("image")
-        self.image.setPlaceholderText("Enter URL")
+        self.image.setPlaceholderText("Enter path: (img/yourimage.png)")
 
         self.start_Button = QtWidgets.QPushButton(self.centralwidget)
         self.start_Button.setGeometry(QtCore.QRect(796, 584, 287, 91))
