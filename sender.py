@@ -42,7 +42,8 @@ def send(self, token, channel_id, message, delay, image):
 
     def time():
         sendMessage(token, channel_id, message, image)
-
+        
+    sendMessage(token, channel_id, message, image)
     schedule.every(int(delay)).minutes.do(time)
 
     while True:
