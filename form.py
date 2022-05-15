@@ -47,7 +47,7 @@ class Ui_MainWindow(object):
                                         text-align: center;
                                         color: #FFFFFF;""")
         self.info_text.setObjectName("info_text")
-        self.info_text.setText("Software for automatically sending messages to discord channels \nGuide: https://github.com/discord-camp/discord-autoposter \n\nMade by RusTNT \nvk.com/rustnt \ndiscord: RusTNT#7271")
+        self.info_text.setText("Software for automatically sending messages to discord channels \nGuide: https://github.com/discord-camp/discord-autoposter \n\nMade by MysticTokens \n Telegram: @MysticTokens")
         self.info_text.setAlignment(QtCore.Qt.AlignCenter)
 
         self.logs_name = QtWidgets.QLabel(self.centralwidget)
@@ -85,10 +85,10 @@ class Ui_MainWindow(object):
                                         line-height: 29px;
                                         color: #FFFFFF;""")
         self.token_text.setObjectName("token_text")
-        self.token_text.setText("Your token:")
+        self.token_text.setText("Your tokens:")
 
-        self.token = QtWidgets.QLineEdit(self.centralwidget)
-        self.token.setGeometry(QtCore.QRect(675, 51, 578, 35))
+        self.token = QtWidgets.QTextEdit(self.centralwidget)
+        self.token.setGeometry(QtCore.QRect(675, 51, 578, 105))
         self.token.setStyleSheet("""background: #C4C4C4;
                                     border-radius: 10px;
                                     font-family: Sitara;
@@ -99,9 +99,10 @@ class Ui_MainWindow(object):
                                     color: #000000;""")
         self.token.setObjectName("token")
         self.token.setPlaceholderText("Enter discord token")
+        self.token.setAlignment(QtCore.Qt.AlignHCenter)
 
         self.channel_id_text = QtWidgets.QLabel(self.centralwidget)
-        self.channel_id_text.setGeometry(QtCore.QRect(675, 91, 125, 35))
+        self.channel_id_text.setGeometry(QtCore.QRect(675, 161, 125, 35))
         self.channel_id_text.setStyleSheet("""font-family: Sitara;
                                         font-style: normal;
                                         font-weight: normal;
@@ -112,7 +113,7 @@ class Ui_MainWindow(object):
         self.channel_id_text.setText("Channel id:")
 
         self.channel_id = QtWidgets.QLineEdit(self.centralwidget)
-        self.channel_id.setGeometry(QtCore.QRect(675, 129, 578, 35))
+        self.channel_id.setGeometry(QtCore.QRect(675, 199, 578, 35))
         self.channel_id.setStyleSheet("""background: #C4C4C4;
                                     border-radius: 10px;
                                     font-family: Sitara;
@@ -125,7 +126,7 @@ class Ui_MainWindow(object):
         self.channel_id.setPlaceholderText("Enter channel id")
 
         self.message_text = QtWidgets.QLabel(self.centralwidget)
-        self.message_text.setGeometry(QtCore.QRect(675, 169, 125, 35))
+        self.message_text.setGeometry(QtCore.QRect(675, 239, 125, 35))
         self.message_text.setStyleSheet("""font-family: Sitara;
                                         font-style: normal;
                                         font-weight: normal;
@@ -133,10 +134,10 @@ class Ui_MainWindow(object):
                                         line-height: 29px;
                                         color: #FFFFFF;""")
         self.message_text.setObjectName("message_text")
-        self.message_text.setText("Message:")
+        self.message_text.setText("Messages:")
 
         self.message = QtWidgets.QTextEdit(self.centralwidget)
-        self.message.setGeometry(QtCore.QRect(675, 207, 578, 222))
+        self.message.setGeometry(QtCore.QRect(675, 277, 578, 152))
         self.message.setStyleSheet("""background: #C4C4C4;
                                     border-radius: 10px;
                                     font-family: Sitara;
@@ -146,7 +147,7 @@ class Ui_MainWindow(object):
                                     line-height: 29px;
                                     color: #000000;""")
         self.message.setObjectName("message")
-        self.message.setPlaceholderText("Enter message")
+        self.message.setPlaceholderText("Enter messages separates by \',\'")
         self.message.setAlignment(QtCore.Qt.AlignHCenter)
 
         self.delay_text = QtWidgets.QLabel(self.centralwidget)
@@ -158,7 +159,7 @@ class Ui_MainWindow(object):
                                         line-height: 29px;
                                         color: #FFFFFF;""")
         self.delay_text.setObjectName("delay_text")
-        self.delay_text.setText("Delay: every          minutes")
+        self.delay_text.setText("Delay: every          seconds")
 
         self.delay = QtWidgets.QLineEdit(self.centralwidget)
         self.delay.setGeometry(QtCore.QRect(780, 448, 45, 22))
@@ -210,6 +211,167 @@ class Ui_MainWindow(object):
                                         color: #FFFFFF;""")
         self.start_Button.setObjectName("start_Button")
         self.start_Button.setText("START")
+
+        #slash commands
+
+        self.slash_Button = QtWidgets.QPushButton(self.centralwidget)
+        self.slash_Button.setGeometry(QtCore.QRect(1215, 16, 32, 32))
+        self.slash_Button.setStyleSheet("""background-image: url(img/slash.png);
+                                    border: 0;
+                                    """)
+        self.slash_Button.setObjectName("slash_Button")
+
+        self.guild_id_text = QtWidgets.QLabel(self.centralwidget)
+        self.guild_id_text.setGeometry(QtCore.QRect(675, 239, 125, 35))
+        self.guild_id_text.setStyleSheet("""font-family: Sitara;
+                                        font-style: normal;
+                                        font-weight: normal;
+                                        font-size: 18px;
+                                        line-height: 29px;
+                                        color: #FFFFFF;""")
+        self.guild_id_text.setObjectName("guild_id_text")
+        self.guild_id_text.setText("Guild ID:")
+
+        self.guild_id = QtWidgets.QLineEdit(self.centralwidget)
+        self.guild_id.setGeometry(QtCore.QRect(675, 277, 578, 35))
+        self.guild_id.setStyleSheet("""background: #C4C4C4;
+                                    border-radius: 10px;
+                                    font-family: Sitara;
+                                    font-style: normal;
+                                    font-weight: normal;
+                                    font-size: 18px;
+                                    line-height: 29px;
+                                    color: #000000;""")
+        self.guild_id.setObjectName("guild_id")
+        self.guild_id.setPlaceholderText("Enter guild id")
+
+        self.application_id_text = QtWidgets.QLabel(self.centralwidget)
+        self.application_id_text.setGeometry(QtCore.QRect(675, 317, 125, 35))
+        self.application_id_text.setStyleSheet("""font-family: Sitara;
+                                        font-style: normal;
+                                        font-weight: normal;
+                                        font-size: 18px;
+                                        line-height: 29px;
+                                        color: #FFFFFF;""")
+        self.application_id_text.setObjectName("application_id_text")
+        self.application_id_text.setText("Application ID:")
+
+        self.application_id = QtWidgets.QLineEdit(self.centralwidget)
+        self.application_id.setGeometry(QtCore.QRect(675, 355, 578, 35))
+        self.application_id.setStyleSheet("""background: #C4C4C4;
+                                    border-radius: 10px;
+                                    font-family: Sitara;
+                                    font-style: normal;
+                                    font-weight: normal;
+                                    font-size: 18px;
+                                    line-height: 29px;
+                                    color: #000000;""")
+        self.application_id.setObjectName("application_id")
+        self.application_id.setPlaceholderText("Enter application id")
+
+        self.version_id_text = QtWidgets.QLabel(self.centralwidget)
+        self.version_id_text.setGeometry(QtCore.QRect(675, 395, 125, 35))
+        self.version_id_text.setStyleSheet("""font-family: Sitara;
+                                        font-style: normal;
+                                        font-weight: normal;
+                                        font-size: 18px;
+                                        line-height: 29px;
+                                        color: #FFFFFF;""")
+        self.version_id_text.setObjectName("version_id_text")
+        self.version_id_text.setText("Version ID:")
+
+        self.version_id = QtWidgets.QLineEdit(self.centralwidget)
+        self.version_id.setGeometry(QtCore.QRect(675, 433, 578, 35))
+        self.version_id.setStyleSheet("""background: #C4C4C4;
+                                    border-radius: 10px;
+                                    font-family: Sitara;
+                                    font-style: normal;
+                                    font-weight: normal;
+                                    font-size: 18px;
+                                    line-height: 29px;
+                                    color: #000000;""")
+        self.version_id.setObjectName("version_id")
+        self.version_id.setPlaceholderText("Enter version id")
+
+        self.command_id_text = QtWidgets.QLabel(self.centralwidget)
+        self.command_id_text.setGeometry(QtCore.QRect(675, 473, 125, 35))
+        self.command_id_text.setStyleSheet("""font-family: Sitara;
+                                        font-style: normal;
+                                        font-weight: normal;
+                                        font-size: 18px;
+                                        line-height: 29px;
+                                        color: #FFFFFF;""")
+        self.command_id_text.setObjectName("command_id_text")
+        self.command_id_text.setText("Command ID:")
+
+        self.command_id = QtWidgets.QLineEdit(self.centralwidget)
+        self.command_id.setGeometry(QtCore.QRect(675, 511, 578, 35))
+        self.command_id.setStyleSheet("""background: #C4C4C4;
+                                    border-radius: 10px;
+                                    font-family: Sitara;
+                                    font-style: normal;
+                                    font-weight: normal;
+                                    font-size: 18px;
+                                    line-height: 29px;
+                                    color: #000000;""")
+        self.command_id.setObjectName("command_id")
+        self.command_id.setPlaceholderText("Enter command id")
+
+        self.command_text = QtWidgets.QLabel(self.centralwidget)
+        self.command_text.setGeometry(QtCore.QRect(675, 551, 125, 35))
+        self.command_text.setStyleSheet("""font-family: Sitara;
+                                        font-style: normal;
+                                        font-weight: normal;
+                                        font-size: 18px;
+                                        line-height: 29px;
+                                        color: #FFFFFF;""")
+        self.command_text.setObjectName("command_text")
+        self.command_text.setText("Command:")
+
+        self.command= QtWidgets.QLineEdit(self.centralwidget)
+        self.command.setGeometry(QtCore.QRect(675, 589, 578, 35))
+        self.command.setStyleSheet("""background: #C4C4C4;
+                                    border-radius: 10px;
+                                    font-family: Sitara;
+                                    font-style: normal;
+                                    font-weight: normal;
+                                    font-size: 18px;
+                                    line-height: 29px;
+                                    color: #000000;""")
+        self.command.setObjectName("command")
+        self.command.setPlaceholderText("Enter command")
+        
+        self.start_slash_Button = QtWidgets.QPushButton(self.centralwidget)
+        self.start_slash_Button.setGeometry(QtCore.QRect(1065, 637, 187, 61))
+        self.start_slash_Button.setStyleSheet("""background: #7289DA;
+                                        border-radius: 15px;
+                                        font-family: Sitara;
+                                        font-style: normal;
+                                        font-weight: normal;
+                                        font-size: 36px;
+                                        line-height: 58px;
+                                        text-align: center;
+                                        color: #FFFFFF;""")
+        self.start_slash_Button.setObjectName("start_slash_Button")
+        self.start_slash_Button.setText("START")
+
+        self.guild_id_text.setHidden(True)
+        self.guild_id.setHidden(True)
+        self.application_id_text.setHidden(True)
+        self.application_id.setHidden(True)
+        self.version_id_text.setHidden(True)
+        self.version_id.setHidden(True)
+        self.command_id.setHidden(True)
+        self.command_id_text.setHidden(True)
+        self.command_text.setHidden(True)
+        self.command.setHidden(True)
+        self.start_slash_Button.setHidden(True)
+
+
+
+
+
+
 
 
 

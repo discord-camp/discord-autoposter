@@ -1,13 +1,16 @@
 import requests as req
 import schedule
-from time import sleep, time
+from time import sleep
 from datetime import datetime
 from websocket import create_connection
 import json
+import random
 
 def send(self, token, channel_id, message, delay, image):
+    messages = message.split(',')
 
-    def sendMessage(token, channelid, message, image):
+    def sendMessage(token, channelid, messages, image):
+        message = random.choice(messages)
         ws = create_connection("wss://gateway.discord.gg/")
         data = '''
         {
@@ -41,10 +44,12 @@ def send(self, token, channel_id, message, delay, image):
 
 
     def time():
-        sendMessage(token, channel_id, message, image)
-        
-    sendMessage(token, channel_id, message, image)
-    schedule.every(int(delay)).minutes.do(time)
+        sendMessage(token, channel_id, messages, image)
+
+    tokens = token.split()
+    for token in tokens:    
+        sendMessage(token, channel_id, messages, image)
+        schedule.every(int(delay)).seconds.do(time)
 
     while True:
         schedule.run_pending()

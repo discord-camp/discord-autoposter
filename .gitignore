@@ -16,3 +16,12 @@ build/main/Tree-01.toc
 build/main/Tree-02.toc
 build/main/warn-main.txt
 build/main/xref-main.html
+data.json
+dist/main.zip
+dist/main.exe
+__pycache__/slash_sender.cpython-39.pyc
+__pycache__/form.cpython-310.pyc
+__pycache__/sender.cpython-310.pyc
+__pycache__/slash_sender.cpython-310.pyc
+__pycache__/main.cpython-310.pyc
+icon.ico
