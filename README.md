@@ -17,7 +17,7 @@ __Discord Auto Poster - Автоматическая отправка краси
 ----------
 # Инструкция по установке на Windows
 
-Скачать и распаковать [архив](https://github.com/discord-camp/discord-autoposter/releases/download/v1.0.0/DiscordAutoPoster.zip) в удобную вам папку, запустить DiscordAutoPoster.exe.
+Скачать и распаковать [архив](https://github.com/discord-camp/discord-autoposter/releases/download/v2.0.0/discord-autoposter.7z) в удобную вам папку, запустить AutoPoster.exe.
 
 # Инструкция по сборке на других платформах
 Для работы необходим [Python 3](https://www.python.org/), а так же дополнительные модули
